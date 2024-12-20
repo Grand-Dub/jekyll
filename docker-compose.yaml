@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  jekyll:
+    image: jekyll:ruby-3.2.2-bookworm
+    build: .
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - $PWD/site:/home/jekyll/jekyll/site
+    ports:
+      - 4000:4000
+    command: ["sleep", "infinity"]
